@@ -1,6 +1,0 @@
-relationship 295167a3-e1c9-c54e-5269-52fcbe92144e
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: dummyDATA.DUM_1
-	toColumn: dim_DIM_1.REGION
-
