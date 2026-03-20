@@ -1,0 +1,47 @@
+table dummyDATA
+	lineageTag: f85b4fcc-cb60-4939-ba59-8185461fcd54
+
+	column DUM_1
+		dataType: string
+		lineageTag: 333a470e-c64d-4be1-aba7-8bbbda5fdbe1
+		summarizeBy: none
+		sourceColumn: DUM_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column DUM_2
+		dataType: string
+		lineageTag: 2952c513-d68d-402b-acbe-ff147ecb5401
+		summarizeBy: none
+		sourceColumn: DUM_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column DUM_3
+		dataType: string
+		lineageTag: 2cb02c08-849e-4b0d-aa56-819812d7c35f
+		summarizeBy: none
+		sourceColumn: DUM_3
+
+		annotation SummarizationSetBy = Automatic
+
+	column VAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 43d3c333-4e6a-457a-b751-68b2ef45b2ca
+		summarizeBy: sum
+		sourceColumn: VAL
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dummyDATA = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WCk8tLlHSUfJILEpJzQMynPPzszNTi4EsQwOlWJ1oJddEsILg3MySDJB8YnYqkDKCSAbnl4JFvfLzwHqgsoYmSrGxAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [DUM_1 = _t, DUM_2 = _t, DUM_3 = _t, VAL = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"DUM_1", type text}, {"DUM_2", type text}, {"DUM_3", type text}, {"VAL", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

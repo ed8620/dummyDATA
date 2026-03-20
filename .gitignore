@@ -1,0 +1,17 @@
+# Power BI
+*.pbix
+*.pbit
+*.pbip.metadata.json
+
+# OS files
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# IDE / editor
+.vscode/
+*.swp
+*.swo
+
+# Power BI local cache
+.pbi/
